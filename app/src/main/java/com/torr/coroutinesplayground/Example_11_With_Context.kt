@@ -33,7 +33,7 @@ class Example_11_With_Context : BaseFragment(), CoroutineScope by MainScope() {
     suspend fun login(): User {
         withContext(Dispatchers.IO) {
             Thread.sleep(2000)
-            Log.d("MMM", "User authenticated on thread ${Thread.currentThread()}")
+            Log.d("Kotlin Meetup", "User authenticated on thread ${Thread.currentThread()}")
         }
         return User()
     }
@@ -41,7 +41,7 @@ class Example_11_With_Context : BaseFragment(), CoroutineScope by MainScope() {
     suspend fun loadFriends(user: User): List<User> {
         withContext(Dispatchers.IO) {
             Thread.sleep(2000)
-            Log.d("MMM", "Friends loaded on thread ${Thread.currentThread()}")
+            Log.d("Kotlin Meetup", "Friends loaded on thread ${Thread.currentThread()}")
         }
         return listOf()
     }
@@ -49,7 +49,7 @@ class Example_11_With_Context : BaseFragment(), CoroutineScope by MainScope() {
     suspend fun loadPosts(user: User): List<Any> {
         withContext(Dispatchers.IO) {
             Thread.sleep(2000)
-            Log.d("MMM", "Posts loaded on thread ${Thread.currentThread()}")
+            Log.d("Kotlin Meetup", "Posts loaded on thread ${Thread.currentThread()}")
         }
         return listOf()
     }

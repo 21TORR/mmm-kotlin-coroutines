@@ -43,7 +43,7 @@ class Example_111_Channel_Pipeline : ChannelFragment(), CoroutineScope by MainSc
     suspend fun login(): User {
         withContext(Dispatchers.IO) {
             Thread.sleep(2000)
-            Log.d("MMM", "User authenticated on thread ${Thread.currentThread()}")
+            Log.d("Kotlin Meetup", "User authenticated on thread ${Thread.currentThread()}")
         }
         return User()
     }

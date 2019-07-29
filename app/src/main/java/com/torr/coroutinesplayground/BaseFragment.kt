@@ -30,7 +30,7 @@ abstract class BaseFragment : Fragment() {
     }
 
     fun doSomething(friends: List<User>, posts: List<Any>) {
-        Log.d("MMM", "friends & posts loaded")
+        Log.d("Kotlin Meetup", "friends & posts loaded")
     }
 
     abstract fun startRequests()

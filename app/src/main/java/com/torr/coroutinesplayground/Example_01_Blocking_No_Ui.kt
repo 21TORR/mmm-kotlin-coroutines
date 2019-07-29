@@ -13,19 +13,19 @@ class Example_01_Blocking_No_Ui : BaseFragment() {
 
     fun login(): User {
         Thread.sleep(2000)
-        Log.d("MMM", "User authenticated on thread ${Thread.currentThread()}")
+        Log.d("Kotlin Meetup", "User authenticated on thread ${Thread.currentThread()}")
         return User()
     }
 
     fun loadFriends(user: User): List<User> {
         Thread.sleep(2000)
-        Log.d("MMM", "Friends loaded on thread ${Thread.currentThread()}")
+        Log.d("Kotlin Meetup", "Friends loaded on thread ${Thread.currentThread()}")
         return listOf()
     }
 
     fun loadPosts(user: User): List<Any> {
         Thread.sleep(2000)
-        Log.d("MMM", "Posts loaded on thread ${Thread.currentThread()}")
+        Log.d("Kotlin Meetup", "Posts loaded on thread ${Thread.currentThread()}")
         return listOf()
     }
 }
