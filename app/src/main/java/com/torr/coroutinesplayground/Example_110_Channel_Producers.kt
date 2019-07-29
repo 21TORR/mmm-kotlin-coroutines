@@ -16,24 +16,6 @@ class Example_110_Channel_Producers : BaseFragment(), CoroutineScope by MainScop
             val user = login()
             showSuccess(loginRequestView)
 
-            showLoading(friendsRequestView)
-            val friendsDeferred = async {
-                loadFriends(user)
-            }
-
-            showLoading(postsRequestView)
-            val postsDeferred = async {
-                loadPosts(user)
-            }
-
-            val friends = friendsDeferred.await()
-            val posts = postsDeferred.await()
-
-            showSuccess(friendsRequestView)
-            showSuccess(postsRequestView)
-
-            doSomething(friends, posts)
-
             val mediaFiles = editAndRenderMediaFiles()
 
             uploadMediaFile(mediaFiles)
@@ -51,22 +33,6 @@ class Example_110_Channel_Producers : BaseFragment(), CoroutineScope by MainScop
             Log.d("MMM", "User authenticated on thread ${Thread.currentThread()}")
         }
         return User()
-    }
-
-    suspend fun loadFriends(user: User): List<User> {
-        withContext(Dispatchers.IO) {
-            Thread.sleep(2000)
-            Log.d("MMM", "Friends loaded on thread ${Thread.currentThread()}")
-        }
-        return listOf()
-    }
-
-    suspend fun loadPosts(user: User): List<Any> {
-        withContext(Dispatchers.IO) {
-            Thread.sleep(2000)
-            Log.d("MMM", "Posts loaded on thread ${Thread.currentThread()}")
-        }
-        return listOf()
     }
 
     private fun CoroutineScope.editAndRenderMediaFiles() = produce {
