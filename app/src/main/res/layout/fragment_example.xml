@@ -36,6 +36,25 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             app:text="Posts"/>
+        <com.torr.coroutinesplayground.LoadSuccessTextView
+            android:id="@+id/fileRenderView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:text="Rendering File"/>
+        <com.torr.coroutinesplayground.LoadSuccessTextView
+            android:id="@+id/fileUploadView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:text="Uploading File"/>
+        <com.torr.coroutinesplayground.LoadSuccessTextView
+            android:id="@+id/locationSharingView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:text="Sharing Location"/>
+
     </LinearLayout>
 
     <TextView
