@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, Example_111_Channel_Pipeline(), null)
+            .replace(R.id.fragment_container, Example_11_With_Context(), null)
             .commit()
     }
 }
