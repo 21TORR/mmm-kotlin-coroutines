@@ -4,7 +4,7 @@ import android.util.Log
 import kotlinx.android.synthetic.main.fragment_example.*
 import kotlinx.android.synthetic.main.fragment_example.view.*
 
-class Example_02_Blocking : BaseFragment() {
+class ExampleFragment : BaseFragment() {
 
     override fun onGoClicked() {
         showLoading(loginRequestView)

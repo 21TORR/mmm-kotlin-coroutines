@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 
 class Example_04_Delay_Suspend_Global_Main : BaseFragment() {
 
-    override fun startRequests() {
+    override fun onGoClicked() {
         GlobalScope.launch(Dispatchers.Main) {
             showLoading(loginRequestView)
             val user = login()
@@ -30,19 +30,19 @@ class Example_04_Delay_Suspend_Global_Main : BaseFragment() {
 
     suspend fun login(): User {
         delay(2000)
-        Log.d("MMM", "User authenticated on thread ${Thread.currentThread()}")
+        Log.d("kotlinCoroutines", "User authenticated on thread ${Thread.currentThread()}")
         return User()
     }
 
     suspend fun loadFriends(user: User): List<User> {
         delay(2000)
-        Log.d("MMM", "Friends loaded on thread ${Thread.currentThread()}")
+        Log.d("kotlinCoroutines", "Friends loaded on thread ${Thread.currentThread()}")
         return listOf()
     }
 
     suspend fun loadPosts(user: User): List<Any> {
         delay(2000)
-        Log.d("MMM", "Posts loaded on thread ${Thread.currentThread()}")
+        Log.d("kotlinCoroutines", "Posts loaded on thread ${Thread.currentThread()}")
         return listOf()
     }
 }

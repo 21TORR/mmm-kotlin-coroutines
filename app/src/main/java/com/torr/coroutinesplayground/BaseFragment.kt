@@ -17,7 +17,7 @@ abstract class BaseFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         go.setOnClickListener {
-            startRequests()
+            onGoClicked()
         }
     }
 
@@ -29,9 +29,9 @@ abstract class BaseFragment : Fragment() {
         loadSuccessTextView.state = LoadSuccessTextView.State.SUCCESS
     }
 
-    fun doSomething(friends: List<User>, posts: List<Any>) {
-        Log.d("MMM", "friends & posts loaded")
+    open fun doSomething(friends: List<User>, posts: List<Any>) {
+        Log.d("kotlinCoroutines", "friends & posts loaded")
     }
 
-    abstract fun startRequests()
+    abstract fun onGoClicked()
 }

@@ -4,13 +4,14 @@ import android.util.Log
 import kotlinx.android.synthetic.main.fragment_example.*
 import kotlinx.android.synthetic.main.fragment_example.view.*
 import kotlinx.coroutines.*
+import kotlinx.coroutines.channels.produce
 
 class Example_07_Scope_Field : BaseFragment() {
 
     var job = Job()
     val scope = CoroutineScope(job + Dispatchers.Main)
 
-    override fun startRequests() {
+    override fun onGoClicked() {
         scope.launch {
             showLoading(loginRequestView)
             val user = login()
@@ -35,19 +36,19 @@ class Example_07_Scope_Field : BaseFragment() {
 
     suspend fun login(): User {
         delay(2000)
-        Log.d("MMM", "User authenticated on thread ${Thread.currentThread()}")
+        Log.d("kotlinCoroutines", "User authenticated on thread ${Thread.currentThread()}")
         return User()
     }
 
     suspend fun loadFriends(user: User): List<User> {
         delay(2000)
-        Log.d("MMM", "Friends loaded on thread ${Thread.currentThread()}")
+        Log.d("kotlinCoroutines", "Friends loaded on thread ${Thread.currentThread()}")
         return listOf()
     }
 
     suspend fun loadPosts(user: User): List<Any> {
         delay(2000)
-        Log.d("MMM", "Posts loaded on thread ${Thread.currentThread()}")
+        Log.d("kotlinCoroutines", "Posts loaded on thread ${Thread.currentThread()}")
         return listOf()
     }
 }

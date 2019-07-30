@@ -1,41 +1,39 @@
 package com.torr.coroutinesplayground
 
 import android.util.Log
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.whenStarted
 import kotlinx.android.synthetic.main.fragment_example.*
-import kotlinx.android.synthetic.main.fragment_example.view.*
 import kotlinx.coroutines.*
 
-class Example_12_Async : BaseFragment(), CoroutineScope by MainScope() {
+class Example_14_LifecycleScope : BaseFragment() {
 
     override fun onGoClicked() {
-        launch {
+        lifecycleScope.launch {
             showLoading(loginRequestView)
             val user = login()
             showSuccess(loginRequestView)
 
             showLoading(friendsRequestView)
-            val friendsDeferred = async {
-                loadFriends(user)
-            }
+            val friends = loadFriends(user)
+            showSuccess(friendsRequestView)
 
             showLoading(postsRequestView)
-            val postsDeferred = async {
-                loadPosts(user)
-            }
-
-            val friends = friendsDeferred.await()
-            val posts = postsDeferred.await()
-
-            showSuccess(friendsRequestView)
+            val posts = loadPosts(user)
             showSuccess(postsRequestView)
 
-            doSomething(friends, posts)
+            gotoPage2()
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        coroutineContext[Job]?.cancel()
+    suspend fun gotoPage2() {
+        whenStarted {
+            Log.d("kotlinCoroutines", "Goto page 2")
+            fragmentManager?.beginTransaction()!!
+                .replace(R.id.fragment_container, Page2Fragment())
+                .addToBackStack(null)
+                .commit()
+        }
     }
 
     suspend fun login(): User {
