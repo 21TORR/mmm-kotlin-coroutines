@@ -78,7 +78,6 @@ class Example_111_Channel_Pipeline : ChannelFragment(), CoroutineScope by MainSc
     }
 
     private fun CoroutineScope.uploadGeoData(geoReceiveChannel: ReceiveChannel<Int>) = launch {
-        Thread.sleep(10)
         for (geoData in geoReceiveChannel) geoData.upload()
     }
 
